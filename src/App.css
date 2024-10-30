@@ -1,38 +1,218 @@
 .App {
-  text-align: center;
+    text-align: center;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+    font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+hr {
+    margin-top: 20px;
+    border: 1px solid #1a1a1a50;
+    width: 20rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.new-task {
+    background-color: #f2f0e6;
+    width: max-content;
+    padding: 6px;
+    border: 1px solid #1a1a1a20;
+    border-radius: 6px;
+    box-shadow: 0 0 4px #1a1a1a30;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.new-task > input {
+    background-color: #fefcf1;
+    width: 20rem;
+    border: 1px solid #1a1a1a50;
+    border-radius: 4px;
+    padding: 6px;
+
+    &:active {
+        border: 1px solid #1a1a1a50;
+    }
+
+    &:focus {
+        border: 1px solid #1a1a1a50;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.new-task > input[type="submit"] {
+    background-color: #282726;
+    color: #cecdc4;
+
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+        background-color: #100f0f;
+    }
+}
+
+.tasks {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 15px;
+}
+
+.taskblock {
+    width: max-content;
+    background-color: #f2f0e6;
+    width: 20rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 6px;
+
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 0 4px #1a1a1a30;
+
+    text-align: left;
+
+    & > p,
+    & > h3 {
+        padding: 0;
+        margin: 0;
+    }
+
+    & > p {
+        font-size: 0.85rem;
+    }
+
+    & > button {
+        width: 100%;
+        border: 1px solid #1a1a1a50;
+        border-radius: 4px;
+        padding: 6px;
+        transition: background-color 300ms ease-in-out;
+    }
+}
+
+.task-update-form > input {
+    width: 100%;
+    padding: 6px;
+
+    &:active {
+        border: 1px solid #1a1a1a50;
+    }
+
+    &:focus {
+        border: 1px solid #1a1a1a50;
+    }
+}
+
+.task-update-form > input[type="submit"] {
+    margin-top: 4px;
+    background-color: #fefcf1;
+    color: #100f0f;
+    border: 1px solid #1a1a1a50;
+    border-radius: 4px;
+    padding: 6px;
+
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+        background-color: #f2f0e6;
+    }
+}
+
+.task-update {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #1a1a1a20;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.task-update.task-title {
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.task-update.task-date {
+    border: 1px solid #1a1a1a20;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.task-check {
+    background-color: #5483b9;
+}
+
+.delete-button {
+    background-color: #c25648;
+    color: #fefcf1;
+
+    &:hover {
+        background-color: #a13a30;
+    }
+}
+
+.edit-button {
+    background-color: #fefcf1;
+    color: #100f0f;
+
+    &:hover {
+        background-color: #f2f0e6;
+    }
+}
+
+#task-completed {
+    opacity: 0.6;
+}
+
+#task-stale {
+    opacity: 1;
+}
+
+@media (max-width: 700px) {
+    .App {
+        gap: 10px;
+    }
+
+    form {
+        margin-inline: 10%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    form > input {
+        font-size: 1rem;
+    }
+
+    .taskblock {
+        margin-inline: 10%;
+        margin-left: auto;
+        margin-right: auto;
+
+        & > h3 {
+            font-size: 1.2rem;
+        }
+        & > p {
+            font-size: 1rem;
+        }
+
+        & > button,
+        & > input {
+            font-size: 1rem;
+        }
+    }
 }
