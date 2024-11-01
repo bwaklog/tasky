@@ -47,7 +47,7 @@ hr {
     }
 
     &:focus {
-        border: 1px solid #1a1a1a50;
+        outline: none;
     }
 }
 
@@ -110,12 +110,8 @@ hr {
     width: 100%;
     padding: 6px;
 
-    &:active {
-        border: 1px solid #1a1a1a50;
-    }
-
     &:focus {
-        border: 1px solid #1a1a1a50;
+        outline: none; 
     }
 }
 

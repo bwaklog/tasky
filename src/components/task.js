@@ -84,22 +84,46 @@ export default function Task({
                 <form className="task-update-form">
                     <input
                         className="task-update task-title"
+                        id="task-title"
                         type="text"
                         defaultValue={componentState.name}
                     />
                     <input
                         className="task-update task-text"
+                        id="task-text"
                         type="text"
                         defaultValue={componentState.description}
                     />
                     <input
                         className="task-update task-date"
+                        id="task-date"
                         type="datetime-local"
                         defaultValue={componentState.time}
                     />
                     <input
                         type="submit"
                         value="Confirm Changes"
+                        // onSubmit={updateTaskData}
+                        // // dont redirect
+                        onClick={(e) => {
+                            e.preventDefault()
+    
+                            const taskTitle = document.getElementById("task-title").value;
+                            const taskDescription = document.getElementById("task-text").value;
+                            const taskDate = document.getElementById("task-date").value;
+
+                            console.log(taskTitle, taskDescription, taskDate);
+                            const updatedTask = {
+                                uniqueID: uniqueID,
+                                name: taskTitle,
+                                description: taskDescription,
+                                time: taskDate,
+                                status: false,
+                            }
+                            setComponentState(updatedTask);
+                            updateParent(updatedTask);
+                            setEditMode(!editMode)
+                        }}
                     />
                 </form>
             )}
